@@ -2,18 +2,18 @@ package com.train;
 
 public class Ticket {
 
-    int totalnumber;
-    int roundtripnumber;
-    int onewaymoney = 1000;
-    int roundtripmoney = 1800;
+    int total;
+    int roundTrip;
+    int oneWayMoney = 1000;
+    int roundTripMoney = 1800;
 
-    public Ticket(int totalnumber, int roundtripnumber) {
-        this.totalnumber = totalnumber;
-        this.roundtripnumber = roundtripnumber;
+    public Ticket(int total, int roundTrip) {
+        this.total = total;
+        this.roundTrip = roundTrip;
     }
 
     public void print(){
-        System.out.println("Total tickets : "+totalnumber+"\n"+"Round-trip: "+roundtripnumber+"\n"+"Total: "+((totalnumber-roundtripnumber)*onewaymoney+roundtripnumber*roundtripmoney));
+        System.out.println("Total tickets : "+total+"\n"+"Round-trip: "+roundTrip+"\n"+"Total: "+((total-roundTrip)*oneWayMoney+roundTrip*roundTripMoney));
 
     }
 

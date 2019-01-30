@@ -3,29 +3,51 @@ package com.train
 import java.util.*
 
 fun main(args: Array<String>) {
+    var total = 0;
+    var roundTrip = 0;
+
+    do{
+        val scanner = Scanner(System.`in`)
+        println("Please enter number of tickets: ")
+        total = scanner.nextInt()
+
+        if (total == -1){
+            println("***Thank you***")
+        }
+        else{
+            do {
+                println("How many round-trip tickets:  ")
+                roundTrip = scanner.nextInt()
+                if(roundTrip > total){
+                    println("Total tickets must be more than round-trip tickets,please input number of round-trip tickets again!")
+                }
+            }while(roundTrip > total)
+
+            val person = Ticket(total, roundTrip)
+            person.print();
+        }
+
+    }
+        while(total != -1)
 
 
-    val scanner = Scanner(System.`in`)
-    println("Please enter number of tickets: ")
-    var totalnumber = scanner.nextInt()
-    println("How many round-trip tickets:  ")
-    var roundtripnumber = scanner.nextInt()
-
-    val person = Ticket(totalnumber, roundtripnumber)
-    person.print();
 
 
 }
 
 
-class Ticket(var totalnumber :Int,var roundtripnumber:Int){
+class Ticket(var total :Int,var roundTrip:Int){
 
-    val onewaymoney = 1000
-    val roundtripmoney = 1800
+    val oneWayMoney = 1000
+    val roundTripMoney = 1800
 
     fun print(){
-        println("Total tickets : " + totalnumber + "\n" + "Round-trip: " + roundtripnumber + "\n" + "Total: " + ((totalnumber - roundtripnumber) * onewaymoney + roundtripnumber * roundtripmoney))
+        println("Total tickets : $total\nRound-trip:$roundTrip\nTotal:${count()}")
     }
+
+    fun count() = (total - roundTrip) * oneWayMoney + roundTrip * roundTripMoney
+
+
 
 
 
